@@ -1,0 +1,27 @@
+<html>
+<head>
+  <p><title="">Asked~~!</title></p>
+
+</head>
+<body>
+  <form action="/ask">
+    <select name="name">
+      <option value="anonym">익명 </option>
+      <option value="<%= session["email"]%>">내 아이디 </option>
+    </select>
+    질문하기 <input type="text" name="question" >
+    <input type="submit">
+  </form>
+
+
+  <% @questions.each do |q| %>
+        <div class="card">
+          <div class="card-body">
+            <p>질문자 : <%= q.name %></p>
+            <p>질문 : <%= q.content %></p>
+        </div>
+      </div>
+  <% end %>
+
+</body>
+</html>
